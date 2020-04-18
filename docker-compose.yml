@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  ludum-dare-46:
+    image: node:lts
+    ports:
+      - ${PORT}:${PORT}
