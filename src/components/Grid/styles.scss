@@ -1,0 +1,35 @@
+.cell {
+  width: 75px;
+  height: 75px;
+  background-color: bisque;
+  float: left;
+  display: inline-block;
+
+  &:hover {
+    background-color: red;
+  }
+
+  &.possibleMovement {
+    &:hover {
+      background-color: green;
+    }
+  }
+
+  &.player {
+    background-color: blue;
+  }
+
+  &.wall {
+    background-color: brown;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+}
+
+.row {
+  display: block;
+  width: 100%;
+  float: left;
+}

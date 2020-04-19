@@ -1,0 +1,43 @@
+import React from 'react';
+
+// importing game logic
+import GameLogic from './gameLogic/Game';
+
+// importing components
+import Grid from './components/Grid';
+
+export class Game extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // creating new scene and getting scene and player
+    const { scene, player } = GameLogic.newScene();
+
+    this.state = {
+      scene,
+      player,
+    };
+  }
+
+  // set scene
+  setScene = (newScene) => this.setState({ scene: newScene });
+
+  // set player position
+  setPlayerPosition = (newPosition) =>
+    this.setState({ player: { ...this.state.player, position: newPosition } });
+
+  render() {
+    return (
+      <div>
+        <Grid
+          scene={this.state.scene}
+          player={this.state.player}
+          setPlayerPosition={this.setPlayerPosition}
+          setScene={this.setScene}
+        />
+      </div>
+    );
+  }
+}
+
+export default Game;
