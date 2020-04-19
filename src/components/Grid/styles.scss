@@ -5,10 +5,6 @@
   float: left;
   display: inline-block;
 
-  &:hover {
-    background-color: red;
-  }
-
   &.possibleMovement {
     &:hover {
       background-color: green;
@@ -19,12 +15,16 @@
     background-color: blue;
   }
 
+  &.enemy {
+    background-color: yellow;
+  }
+
   &.wall {
     background-color: brown;
+  }
 
-    &:hover {
-      background-color: red;
-    }
+  &:hover {
+    background-color: red;
   }
 }
 

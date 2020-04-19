@@ -14,51 +14,46 @@ function Grid(props) {
   const { scene, player, setPlayerPosition, setScene } = props;
 
   // getting player position
-  const { column: playerColumn, row: playerRow } = player.position;
+  const { position: playerPosition } = player;
 
   // cell click handler
-  const cellClickHandler = (cellRow, cellColumn) => {
+  const cellClickHandler = (cellPosition) => {
     // moving player
     const { newScene, movementSuccess } = Player.move(
       scene,
-      cellRow,
-      cellColumn,
-      playerRow,
-      playerColumn
+      cellPosition,
+      playerPosition
     );
 
     // if success movement
     if (movementSuccess) {
-      // new player position
-      const newPlayerPositio = {
-        row: cellRow,
-        column: cellColumn,
-      };
-
       // changing scene
       setScene(newScene);
 
       // changing player position
-      setPlayerPosition(newPlayerPositio);
+      setPlayerPosition(cellPosition);
     }
   };
 
   // creating scene view
   const sceneView = scene.map((sceneRow, cellRow) => (
     <div className="row">
-      {sceneRow.map((cell, cellColumn) => (
-        <Cell
-          handleClick={() => cellClickHandler(cellRow, cellColumn)}
-          type={cell}
-          isPossibleMovement={Player.checkIsPossibleMovement(
-            cell,
-            cellRow,
-            cellColumn,
-            playerRow,
-            playerColumn
-          )}
-        />
-      ))}
+      {sceneRow.map((cell, cellColumn) => {
+        // creating cell position object
+        const cellPosition = { row: cellRow, column: cellColumn };
+
+        return (
+          <Cell
+            handleClick={() => cellClickHandler(cellPosition)}
+            type={cell}
+            isPossibleMovement={Player.checkIsPossibleMovement(
+              cell,
+              cellPosition,
+              playerPosition
+            )}
+          />
+        );
+      })}
     </div>
   ));
 

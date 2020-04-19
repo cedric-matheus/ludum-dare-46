@@ -4,6 +4,9 @@ import Scene from './Scene';
 // importing player logic
 import Player from './Player';
 
+// importing enemy logic
+import Enemy from './Enemy';
+
 /**
  * New Scene
  *
@@ -13,15 +16,21 @@ import Player from './Player';
  */
 function newScene() {
   // creating empty scene
-  const emptyScene = Scene.create(12, 20);
+  let scene = Scene.create(12, 20);
 
   // creating player
-  const player = Player.create(emptyScene);
+  const player = Player.create(scene);
 
   // adding player to scene
-  const scene = Scene.addPlayer(emptyScene, player.position);
+  scene = Scene.addPlayer(scene, player.position);
 
-  return { scene, player };
+  // creating enemy
+  const enemy = Enemy.create(scene);
+
+  // adding enemy to scene
+  scene = Scene.addEnemy(scene, enemy.position);
+
+  return { scene, player, enemy };
 }
 
 export default { newScene };

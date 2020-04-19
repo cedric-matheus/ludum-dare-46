@@ -4,6 +4,7 @@ import React from 'react';
 const cellTypes = {
   w: 'wall',
   p: 'player',
+  e: 'enemy',
   '': '',
 };
 

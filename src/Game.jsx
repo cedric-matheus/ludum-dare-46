@@ -11,11 +11,12 @@ export class Game extends React.Component {
     super(props);
 
     // creating new scene and getting scene and player
-    const { scene, player } = GameLogic.newScene();
+    const { scene, player, enemy } = GameLogic.newScene();
 
     this.state = {
       scene,
       player,
+      enemy,
     };
   }
 

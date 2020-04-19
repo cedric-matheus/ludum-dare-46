@@ -1,14 +1,47 @@
 /**
- * Check Cell Is Wall
+ * Check Cell Is Blocked
  *
- * Check if cell is a wall
+ * Check if cell is blocked
  *
  * @param {string} cell
  *
- * @returns {boolean} Cell is a wall
+ * @returns {boolean} Cell is blocked
  */
-function checkCellIsWall(cell) {
-  return cell === 'w';
+function checkCellIsBlocked(cell) {
+  // blocked cells
+  const blockedCells = ['e', 'p', 'w'];
+
+  return blockedCells.includes(cell);
+}
+
+/**
+ * Check Is Adjacent Cell
+ *
+ * Check if two cells (a and b) is adjacents
+ *
+ * @param {Position} aCellPosition
+ * @param {Position} bCellPosition
+ *
+ * @returns {boolean} Cells is adjacents
+ */
+function checkIsAdjacentCell(aCellPosition, bCellPosition) {
+  // getting (a) cell row and cell
+  const { row: aCellRow, column: aCellColumn } = aCellPosition;
+
+  // getting (b) cell row and cell
+  const { row: bCellRow, column: bCellColumn } = bCellPosition;
+
+  // is row adjacent
+  const isRowAdjacent =
+    (aCellRow === bCellRow + 1 || aCellRow === bCellRow - 1) &&
+    aCellColumn === bCellColumn;
+
+  // is column adjacent
+  const isColumnAdjacent =
+    (aCellColumn === bCellColumn + 1 || aCellColumn === bCellColumn - 1) &&
+    aCellRow === bCellRow;
+
+  return isRowAdjacent || isColumnAdjacent;
 }
 
 /**
@@ -101,4 +134,35 @@ function addPlayer(scene, playerPosition) {
   return newScene;
 }
 
-export default { create, addPlayer, checkCellIsWall, checkCellIsBorder };
+/**
+ * Add Enemy
+ *
+ * Adding enemy to scene
+ *
+ * @param {string[][]} scene
+ * @param {Object} enemyPosition
+ *
+ * @returns {string[][]} Scene with enemy
+ */
+function addEnemy(scene, enemyPosition) {
+  // copying scene
+  const newScene = scene;
+
+  // getting enemy position row and column
+  const { row, column } = enemyPosition;
+
+  // adding enemy
+  newScene[row][column] = 'e';
+
+  // returning new scene with enemy
+  return newScene;
+}
+
+export default {
+  create,
+  addPlayer,
+  addEnemy,
+  checkCellIsBlocked,
+  checkIsAdjacentCell,
+  checkCellIsBorder,
+};

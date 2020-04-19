@@ -16,16 +16,13 @@ import Scene from './Scene';
  *
  * @param {string} cell
  * @param {Position} cellPosition
- * @param {Position} playerPosition
+ * @param {Position} enemyPosition
  *
  * @returns {boolean} Movement is possible
  */
-function checkIsPossibleMovement(cell, cellPosition, playerPosition) {
+function checkIsPossibleMovement(cell, cellPosition, enemyPosition) {
   // cell is adjacent
-  const cellIsAdjacent = Scene.checkIsAdjacentCell(
-    cellPosition,
-    playerPosition
-  );
+  const cellIsAdjacent = Scene.checkIsAdjacentCell(cellPosition, enemyPosition);
 
   // cell not is blocked
   const cellNotIsBlocked = !Scene.checkCellIsBlocked(cell);
@@ -36,23 +33,23 @@ function checkIsPossibleMovement(cell, cellPosition, playerPosition) {
 /**
  * Move
  *
- * Move player to cellRow, cellColumn;
+ * Move enemy to cellRow, cellColumn;
  *
  * @param {string[][]} scene
  * @param {Position} cellPosition
- * @param {Position} playerPosition
+ * @param {Position} enemyPosition
  *
  * @returns {Object} { newScene, movementSuccess }
  */
-function move(scene, cellPosition, playerPosition) {
+function move(scene, cellPosition, enemyPosition) {
   // creating scene copy
   const newScene = scene;
 
   // getting cell row and column
   const { row: cellRow, column: cellColumn } = cellPosition;
 
-  // getting player row and column
-  const { row: playerRow, column: playerColumn } = playerPosition;
+  // getting enemy row and column
+  const { row: enemyRow, column: enemyColumn } = enemyPosition;
 
   // getting cell
   const cell = scene[cellRow][cellColumn];
@@ -61,7 +58,7 @@ function move(scene, cellPosition, playerPosition) {
   const isPossibleMovement = checkIsPossibleMovement(
     cell,
     cellPosition,
-    playerPosition
+    enemyPosition
   );
 
   // movement success
@@ -69,11 +66,11 @@ function move(scene, cellPosition, playerPosition) {
 
   // move is movement is possible
   if (isPossibleMovement) {
-    // resetting player cell
-    newScene[playerRow][playerColumn] = '';
+    // resetting enemy cell
+    newScene[enemyRow][enemyColumn] = '';
 
-    // changing cell to player
-    newScene[cellRow][cellColumn] = 'p';
+    // changing cell to enemy
+    newScene[cellRow][cellColumn] = 'e';
 
     // success
     movementSuccess = true;
@@ -86,7 +83,7 @@ function move(scene, cellPosition, playerPosition) {
 /**
  * Create
  *
- * Create player.
+ * Create enemy.
  *
  * @param {string[][]} scene
  *
@@ -101,17 +98,17 @@ function create(scene) {
   // is valid position
   let isValidPosition = false;
 
-  // player position row
+  // enemy position row
   let positionRow;
 
-  // player position column
+  // enemy position column
   let positionColumn;
 
   do {
-    // creating player position row
+    // creating enemy position row
     positionRow = Math.floor(Math.random() * sceneRows);
 
-    // creating player position column
+    // creating enemy position column
     positionColumn = Math.floor(Math.random() * sceneColumns);
 
     // getting position cell
@@ -123,7 +120,7 @@ function create(scene) {
     // while not valid position
   } while (!isValidPosition);
 
-  // returning player
+  // returning enemy
   return { position: { row: positionRow, column: positionColumn } };
 }
 
