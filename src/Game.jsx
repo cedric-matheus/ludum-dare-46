@@ -6,6 +6,10 @@ import GameLogic from './gameLogic/Game';
 // importing components
 import Grid from './components/Grid';
 
+
+// importing styles
+import './global.scss';
+
 export class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -31,6 +35,7 @@ export class Game extends React.Component {
     return (
       <div>
         <Grid
+          ClassName="grid"
           scene={this.state.scene}
           player={this.state.player}
           setPlayerPosition={this.setPlayerPosition}

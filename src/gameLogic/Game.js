@@ -16,7 +16,7 @@ import Enemy from './Enemy';
  */
 function newScene() {
   // creating empty scene
-  let scene = Scene.create(12, 20);
+  let scene = Scene.create(30, 10);
 
   // creating player
   const player = Player.create(scene);
