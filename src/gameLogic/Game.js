@@ -1,36 +1,24 @@
-// importing scene logic
-import Scene from './Scene';
+// scenes constants
+export const SCENES = {
+  MAIN_MENU: 'MainMenu',
+  LEVEL: 'Level',
+  GAME_OVER: 'GameOver',
+};
 
-// importing player logic
-import Player from './Player';
+export default class Game {
+  constructor() {
+    this.scene = SCENES.MAIN_MENU;
+  }
 
-// importing enemy logic
-import Enemy from './Enemy';
+  mainMenu() {
+    this.scene = SCENES.MAIN_MENU;
+  }
 
-/**
- * New Scene
- *
- * Create a new scene.
- *
- * @returns {string[][]} New scene
- */
-function newScene() {
-  // creating empty scene
-  let scene = Scene.create(12, 20);
+  newGame() {
+    this.scene = SCENES.LEVEL;
+  }
 
-  // creating player
-  const player = Player.create(scene);
-
-  // adding player to scene
-  scene = Scene.addPlayer(scene, player.position);
-
-  // creating enemy
-  const enemy = Enemy.create(scene);
-
-  // adding enemy to scene
-  scene = Scene.addEnemy(scene, enemy.position);
-
-  return { scene, player, enemy };
+  gameOver() {
+    this.scene = SCENES.GAME_OVER;
+  }
 }
-
-export default { newScene };
