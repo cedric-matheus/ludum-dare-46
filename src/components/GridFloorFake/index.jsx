@@ -100,12 +100,12 @@ const GridFloorFake = (props) =>{
              <CellFloor type={2}/>
              <CellFloor type={1}/>
              <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
              <CellFloor type={2}/>
              <CellFloor type={3}/>
+             <CellFloor type={2}/>
+             <CellFloor type={0}/>
+             <CellFloor type={2}/>
+             <CellFloor type={0}/>
            </div>
 
            <div className="row">
@@ -113,76 +113,11 @@ const GridFloorFake = (props) =>{
              <CellFloor type={0}/>
              <CellFloor type={0}/>
              <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={2}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
              <CellFloor type={1}/>
              <CellFloor type={0}/>
              <CellFloor type={1}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
-
-           <div className="row">
              <CellFloor type={1}/>
              <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
              <CellFloor type={2}/>
            </div>
 
@@ -192,220 +127,24 @@ const GridFloorFake = (props) =>{
              <CellFloor type={0}/>
              <CellFloor type={2}/>
              <CellFloor type={1}/>
+             <CellFloor type={2}/>
+             <CellFloor type={1}/>
              <CellFloor type={3}/>
              <CellFloor type={0}/>
-             <CellFloor type={1}/>
              <CellFloor type={0}/>
-             <CellFloor type={1}/>
            </div>
 
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
+           
 
-           <div className="row">
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-           </div>
 
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
 
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={2}/>
-           </div>
 
-           <div className="row">
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-           </div>
+           
 
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
 
-           <div className="row">
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-           </div>
 
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
 
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={2}/>
-           </div>
 
-           <div className="row">
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={2}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={2}/>
-             <CellFloor type={1}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-           </div>
-
-           <div className="row">
-             <CellFloor type={0}/>
-             <CellFloor type={3}/>
-             <CellFloor type={0}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={1}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-             <CellFloor type={2}/>
-             <CellFloor type={3}/>
-           </div>
 
            </div>
            

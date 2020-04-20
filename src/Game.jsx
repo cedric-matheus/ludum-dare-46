@@ -21,7 +21,7 @@ export class Game extends React.Component {
     // creating new scene and getting scene and player
     const { scene, player, enemy } = GameLogic.newScene();
 
-    this.floor= scene;
+    this.floor = scene;
 
     this.state = {
       scene,
@@ -48,7 +48,30 @@ export class Game extends React.Component {
           setPlayerPosition={this.setPlayerPosition}
           setScene={this.setScene}
         />
-        <GridFloorFake/>
+        <GridFloorFake />
+
+        {/* Border all game */}
+        <div className="border"></div>
+
+        {/* Power By */}
+        <div className="powerby">Power by</div>
+        <div className="groupName">
+          <div>Cedric Matheus</div>
+          <div>Eder Pedroso</div>
+        </div>
+
+        <div className="hud">
+
+          <div className="coin_area">
+            <div className="coin"></div>
+            <div className="coin_qtd">25</div>
+          </div>
+
+          <div className="logo_area">
+            <div><span>NO</span>CAT</div>
+          </div>
+
+        </div>
       </div>
     );
   }
