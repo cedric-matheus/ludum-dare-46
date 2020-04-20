@@ -29,6 +29,22 @@ $size: 100vw;
   &.player {
     background-image: url("/persona1.png");
     animation: persona_front 0.4s infinite;
+
+    &:after{
+      position: absolute;
+      top:-30px;
+      width:10vw;
+      content: "I need protect that car for robots...";
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 10px;
+      font-size: 14px;
+      color: #312736;
+      opacity: 0;
+      animation: ballon 6s;
+      animation-delay: 2s;
+      
+    }
   }
 
   &.enemy {
@@ -81,6 +97,23 @@ $size: 100vw;
 }
 
 
+@keyframes ballon {
+  0% {
+     opacity: 0;
+   }
+   10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+   100%{
+     opacity: 0;
+   }
+ }
+ 
+
+
 
 
 
@@ -96,4 +129,6 @@ $size: 100vw;
     margin-top: 0;
   }
 }
+
+
 
