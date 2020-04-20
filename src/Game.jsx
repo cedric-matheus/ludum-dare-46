@@ -7,6 +7,10 @@ import GameLogic from './gameLogic/Game';
 import Grid from './components/Grid';
 
 
+// importing floor components
+import GridFloorFake from './components/GridFloorFake';
+
+
 // importing styles
 import './global.scss';
 
@@ -17,6 +21,8 @@ export class Game extends React.Component {
     // creating new scene and getting scene and player
     const { scene, player, enemy } = GameLogic.newScene();
 
+    this.floor= scene;
+
     this.state = {
       scene,
       player,
@@ -26,6 +32,7 @@ export class Game extends React.Component {
 
   // set scene
   setScene = (newScene) => this.setState({ scene: newScene });
+
 
   // set player position
   setPlayerPosition = (newPosition) =>
@@ -41,6 +48,7 @@ export class Game extends React.Component {
           setPlayerPosition={this.setPlayerPosition}
           setScene={this.setScene}
         />
+        <GridFloorFake/>
       </div>
     );
   }
