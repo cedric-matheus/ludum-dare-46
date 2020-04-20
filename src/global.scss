@@ -66,8 +66,8 @@ body {
         
         align-items: center;
         .coin{
-            width: 150px;
-            height: 150px;
+            width: calc(20px + 8vw);
+            height: calc(20px + 8vw);
             background-image: url(/coin.png);
             background-repeat: no-repeat;
             background-position: right center;
@@ -76,7 +76,7 @@ body {
 
         .coin_qtd{
             color: #818d96;
-            font-size: 100px;
+            font-size: calc(14px + 5vw);
             text-shadow: 2px 10px 20px rgba(0,0,0,0.3);
         }
 
@@ -91,7 +91,7 @@ body {
 
         div{
             width: 90%;
-            font-size:100px
+            font-size:calc(14px + 5vw);
         }
 
         span{

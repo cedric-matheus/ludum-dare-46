@@ -1,4 +1,5 @@
 import React from 'react';
+import Sound from 'react-sound';
 
 // importing game logic
 import GameLogic from './gameLogic/Game';
@@ -72,6 +73,16 @@ export class Game extends React.Component {
           </div>
 
         </div>
+<Sound
+      url="music.m4a"
+      playStatus={Sound.status.PLAYING}
+      playFromPosition={300 /* in milliseconds */}
+      onLoading={this.handleSongLoading}
+      onPlaying={this.handleSongPlaying}
+      onFinishedPlaying={this.handleSongFinishedPlaying}
+      loop={true}
+      volume={30}
+    />
       </div>
     );
   }
