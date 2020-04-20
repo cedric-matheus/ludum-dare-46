@@ -1,16 +1,13 @@
 import React from 'react';
 
-import Scenes from './_Scenes';
+import ScenesContainers from '../containers/_Scenes';
 
-function Game(props) {
-  // destructuring props
-  const { game } = props;
-
+function Game({ game }) {
   // destructuring game
   const { scene } = game;
 
   // getting scene component
-  const Scene = Scenes[scene];
+  const Scene = ScenesContainers[scene];
 
   // render
   return (

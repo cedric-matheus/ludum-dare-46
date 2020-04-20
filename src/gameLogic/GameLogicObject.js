@@ -1,11 +1,11 @@
 // scenes constants
 export const SCENES = {
-  MAIN_MENU: 'MainMenu',
-  LEVEL: 'Level',
-  GAME_OVER: 'GameOver',
+  MAIN_MENU: 'MainMenuScene',
+  LEVEL: 'LevelScene',
+  GAME_OVER: 'GameOverScene',
 };
 
-export default class Game {
+export default class GameLogicObject {
   constructor() {
     this.scene = SCENES.MAIN_MENU;
   }
