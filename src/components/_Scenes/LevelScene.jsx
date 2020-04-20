@@ -1,8 +1,13 @@
 import React from 'react';
 
-function Level(props) {
+function LevelScene({ LevelBoard, LevelHud }) {
   // rendering component
-  return <div>Level</div>;
+  return (
+    <div className="levelSceneContainer">
+      {/* <LevelHud /> */}
+      <LevelBoard />
+    </div>
+  );
 }
 
-export default Level;
+export default LevelScene;

@@ -23,6 +23,22 @@
     background-color: brown;
   }
 
+  &.refri {
+    background-color: darkblue;
+  }
+
+  &.trash {
+    background-color: gray;
+  }
+
+  &.arcade {
+    background-color: blueviolet;
+  }
+
+  &.exit {
+    background-color: cyan;
+  }
+
   &:hover {
     background-color: red;
   }
