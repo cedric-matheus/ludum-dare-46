@@ -32,13 +32,13 @@ $size: 100vw;
 
     &:after {
       position: absolute;
-      top: -30px;
-      width: 10vw;
-      content: 'I need protect that car for robots...';
+      top: -40px;
+      width: calc(50px + 15vw);
+      content: 'I need to protect this cat from the robots...';
       background-color: #fff;
       border-radius: 20px;
       padding: 10px;
-      font-size: 14px;
+      font-size: calc(5px + 1vw);
       color: #312736;
       opacity: 0;
       animation: ballon 6s;
