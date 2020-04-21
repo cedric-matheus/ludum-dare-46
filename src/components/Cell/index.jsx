@@ -5,15 +5,12 @@ const cellTypes = {
   w: 'wall',
   p: 'player',
   e: 'enemy',
+  r: 'refri',
+  f: 'fliper',
   '': '',
 };
 
-
-
-
 function Cell(props) {
-
-
   // getting type of cell
   const { type, isPossibleMovement, handleClick } = props;
 

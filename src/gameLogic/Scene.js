@@ -9,7 +9,7 @@
  */
 function checkCellIsBlocked(cell) {
   // blocked cells
-  const blockedCells = ['e', 'p', 'w'];
+  const blockedCells = ['e', 'p', 'w', 'r', 'f'];
 
   return blockedCells.includes(cell);
 }
@@ -158,10 +158,62 @@ function addEnemy(scene, enemyPosition) {
   return newScene;
 }
 
+function generateValidPosition(scene) {
+  // getting scene total rows
+  const sceneRows = scene.length;
+  // getting scene total columns
+  const sceneColumns = scene[0].length;
+
+  // is valid position
+  let isValidPosition = false;
+
+  // enemy position row
+  let positionRow;
+
+  // enemy position column
+  let positionColumn;
+
+  do {
+    // creating enemy position row
+    positionRow = Math.floor(Math.random() * sceneRows);
+
+    // creating enemy position column
+    positionColumn = Math.floor(Math.random() * sceneColumns);
+
+    // getting position cell
+    const cell = scene[positionRow][positionColumn];
+
+    // checking if cell is not blocked
+    isValidPosition = !checkCellIsBlocked(cell);
+
+    // while not valid position
+  } while (!isValidPosition);
+
+  return { row: positionRow, column: positionColumn };
+}
+
+function addWalls(scene, quantity, type) {
+  // copying scene
+  let newScene = scene;
+
+  //
+  for (let wallNumber = 0; wallNumber < quantity; wallNumber++) {
+    const wallPosition = generateValidPosition(newScene);
+
+    const { row: wallRow, column: wallColumn } = wallPosition;
+
+    newScene[wallRow][wallColumn] = type;
+  }
+
+  return newScene;
+}
+
 export default {
   create,
   addPlayer,
   addEnemy,
+  addWalls,
+  generateValidPosition,
   checkCellIsBlocked,
   checkIsAdjacentCell,
   checkCellIsBorder,

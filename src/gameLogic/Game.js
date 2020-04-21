@@ -18,6 +18,11 @@ function newScene() {
   // creating empty scene
   let scene = Scene.create(9, 9);
 
+  // adding inside walls
+  scene = Scene.addWalls(scene, 5, 'r');
+
+  scene = Scene.addWalls(scene, 5, 'f');
+
   // creating player
   const player = Player.create(scene);
 
@@ -30,7 +35,33 @@ function newScene() {
   // adding enemy to scene
   scene = Scene.addEnemy(scene, enemy.position);
 
-  return { scene, player, enemy };
+  // creating enemy
+  const enemy2 = Enemy.create(scene);
+
+  // adding enemy to scene
+  scene = Scene.addEnemy(scene, enemy2.position);
+
+  return { scene, player, enemy, enemy2 };
 }
 
-export default { newScene };
+function endTurn(scene, player, enemy, enemy2) {
+  const { position: playerPosition } = player;
+  const { position: enemyPosition } = enemy;
+  const { position: enemy2Position } = enemy2;
+  const { newScene, newEnemyPosition } = Enemy.move(
+    scene,
+    playerPosition,
+    enemyPosition
+  );
+
+  const {
+    newScene: newScene2,
+    newEnemyPosition: newEnemy2Position,
+  } = Enemy.move(newScene, playerPosition, enemy2Position);
+
+  console.log(newScene);
+
+  return { newScene2, newEnemyPosition, newEnemy2Position };
+}
+
+export default { newScene, endTurn };

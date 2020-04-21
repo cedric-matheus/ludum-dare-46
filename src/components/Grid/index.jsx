@@ -3,6 +3,8 @@ import React from 'react';
 // importing player logic
 import Player from '../../gameLogic/Player';
 
+import Game from '../../gameLogic/Game';
+
 // importing components
 import Cell from '../Cell';
 
@@ -11,7 +13,18 @@ import './styles.scss';
 
 function Grid(props) {
   // getting scene matrix
-  const { scene, player, setPlayerPosition, setScene } = props;
+  const {
+    scene,
+    player,
+    setPlayerPosition,
+    setEnemyPosition,
+    setEnemy2Position,
+    setScene,
+    enemy,
+    enemy2,
+  } = props;
+
+  console.log(enemy2);
 
   // getting player position
   const { position: playerPosition } = player;
@@ -19,7 +32,7 @@ function Grid(props) {
   // cell click handler
   const cellClickHandler = (cellPosition) => {
     // moving player
-    const { newScene, movementSuccess } = Player.move(
+    const { newScene: playerScene, movementSuccess } = Player.move(
       scene,
       cellPosition,
       playerPosition
@@ -27,11 +40,26 @@ function Grid(props) {
 
     // if success movement
     if (movementSuccess) {
-      // changing scene
-      setScene(newScene);
+      const { newScene2, newEnemyPosition, newEnemy2Position } = Game.endTurn(
+        playerScene,
+        player,
+        enemy,
+        enemy2
+      );
 
       // changing player position
       setPlayerPosition(cellPosition);
+
+      // changing enemy position
+      setEnemyPosition(newEnemyPosition);
+
+      // changing enemy position
+      setEnemy2Position(newEnemy2Position);
+
+      console.log(newScene2);
+
+      // changing scene
+      setScene(newScene2);
     }
   };
 

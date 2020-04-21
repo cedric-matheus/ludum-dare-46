@@ -33,51 +33,137 @@ function checkIsPossibleMovement(cell, cellPosition, enemyPosition) {
 /**
  * Move
  *
- * Move enemy to cellRow, cellColumn;
+ * Move enemy
  *
  * @param {string[][]} scene
- * @param {Position} cellPosition
+ * @param {Position} playerPosition
  * @param {Position} enemyPosition
  *
- * @returns {Object} { newScene, movementSuccess }
+ * @returns {Object} { newScene, newEnemyPosition }
  */
-function move(scene, cellPosition, enemyPosition) {
+function move(scene, playerPosition, enemyPosition) {
   // creating scene copy
   const newScene = scene;
-
-  // getting cell row and column
-  const { row: cellRow, column: cellColumn } = cellPosition;
 
   // getting enemy row and column
   const { row: enemyRow, column: enemyColumn } = enemyPosition;
 
-  // getting cell
-  const cell = scene[cellRow][cellColumn];
+  // getting player row and column
+  const { row: playerRow, column: playerColumn } = playerPosition;
 
-  // checking if movment is possible
-  const isPossibleMovement = checkIsPossibleMovement(
-    cell,
-    cellPosition,
-    enemyPosition
-  );
+  // getting row distance from player
+  const rowDistance = Math.abs(playerRow - enemyRow);
 
-  // movement success
-  let movementSuccess = false;
+  // getting column distance from player
+  const columnDistance = Math.abs(playerColumn - enemyColumn);
 
-  // move is movement is possible
-  if (isPossibleMovement) {
-    // resetting enemy cell
-    newScene[enemyRow][enemyColumn] = '';
+  const rowMovements = {
+    positive: { row: enemyRow + 1, column: enemyColumn },
+    negative: { row: enemyRow - 1, column: enemyColumn },
+  };
 
-    // changing cell to enemy
-    newScene[cellRow][cellColumn] = 'e';
+  const columnMovements = {
+    positive: { row: enemyRow, column: enemyColumn + 1 },
+    negative: { row: enemyRow, column: enemyColumn - 1 },
+  };
 
-    // success
-    movementSuccess = true;
+  const movements = {
+    rowMovements,
+    columnMovements,
+  };
+
+  const movementList = [];
+
+  // checking if first movement option is a row movement or column movement
+  if (rowDistance > columnDistance) {
+    // adding first movement option
+    if (enemyRow < playerRow) {
+      movementList.push(movements['rowMovements']['positive']);
+    } else {
+      movementList.push(movements['rowMovements']['negative']);
+    }
+
+    // adding second and third movement options
+    if (enemyColumn < playerColumn) {
+      movementList.push(movements['columnMovements']['positive']);
+      movementList.push(movements['columnMovements']['negative']);
+    } else {
+      movementList.push(movements['columnMovements']['negative']);
+      movementList.push(movements['columnMovements']['positive']);
+    }
+
+    // adding last movement option
+    if (enemyRow < playerRow) {
+      movementList.push(movements['rowMovements']['negative']);
+    } else {
+      movementList.push(movements['rowMovements']['positive']);
+    }
+  } else {
+    // adding first movement option
+    if (enemyColumn < playerColumn) {
+      movementList.push(movements['columnMovements']['positive']);
+    } else {
+      movementList.push(movements['columnMovements']['negative']);
+    }
+
+    // adding second and third movement options
+    if (enemyRow < playerRow) {
+      movementList.push(movements['rowMovements']['positive']);
+      movementList.push(movements['rowMovements']['negative']);
+    } else {
+      movementList.push(movements['rowMovements']['negative']);
+      movementList.push(movements['rowMovements']['positive']);
+    }
+
+    // adding last movement option
+    if (enemyColumn < playerColumn) {
+      movementList.push(movements['columnMovements']['negative']);
+    } else {
+      movementList.push(movements['columnMovements']['positive']);
+    }
   }
 
+  // enemy movement position
+  let cellPosition;
+
+  //
+  let isPossibleMovement;
+
+  let movementOption = -1;
+
+  // getting cell row and column
+  let cellRow;
+  let cellColumn;
+
+  // testing movements
+  do {
+    movementOption++;
+
+    cellPosition = movementList[movementOption];
+
+    // getting cell row and column
+    cellRow = cellPosition.row;
+    cellColumn = cellPosition.column;
+
+    // getting cell
+    const cell = scene[cellRow][cellColumn];
+
+    // checking if movment is possible
+    isPossibleMovement = checkIsPossibleMovement(
+      cell,
+      cellPosition,
+      enemyPosition
+    );
+  } while (!isPossibleMovement);
+
+  // resetting enemy cell
+  newScene[enemyRow][enemyColumn] = '';
+
+  // changing cell to enemy
+  newScene[cellRow][cellColumn] = 'e';
+
   // retutning new scene
-  return { newScene, movementSuccess };
+  return { newScene, newEnemyPosition: cellPosition };
 }
 
 /**
@@ -90,38 +176,11 @@ function move(scene, cellPosition, enemyPosition) {
  * @returns {Object} { position: { row, column } }
  */
 function create(scene) {
-  // getting scene total rows
-  const sceneRows = scene.length;
-  // getting scene total columns
-  const sceneColumns = scene[0].length;
-
-  // is valid position
-  let isValidPosition = false;
-
-  // enemy position row
-  let positionRow;
-
-  // enemy position column
-  let positionColumn;
-
-  do {
-    // creating enemy position row
-    positionRow = Math.floor(Math.random() * sceneRows);
-
-    // creating enemy position column
-    positionColumn = Math.floor(Math.random() * sceneColumns);
-
-    // getting position cell
-    const cell = scene[positionRow][positionColumn];
-
-    // checking if cell is not blocked
-    isValidPosition = !Scene.checkCellIsBlocked(cell);
-
-    // while not valid position
-  } while (!isValidPosition);
+  // getting valid position to create enemy
+  const position = Scene.generateValidPosition(scene);
 
   // returning enemy
-  return { position: { row: positionRow, column: positionColumn } };
+  return { position };
 }
 
 export default { create, move, checkIsPossibleMovement };

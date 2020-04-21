@@ -3,38 +3,38 @@ $size: 100vw;
 .cell {
   width: 100%;
   height: ($size * 0.15);
-  
+
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center center;
   &.possibleMovement {
     &:hover {
-      background-image: url("/select_ative.png");
-      background-color:rgba(0,0,0,0.0);
+      background-image: url('/select_ative.png');
+      background-color: rgba(0, 0, 0, 0);
       animation: into_hover 0.3s;
       opacity: 1;
     }
   }
 
-  &.floor1{
-    background-image: url("/floor1.png");
+  &.floor1 {
+    background-image: url('/floor1.png');
   }
-  &.floor2{
-    background-image: url("/floor2.png");
+  &.floor2 {
+    background-image: url('/floor2.png');
   }
-  &.floor3{
-    background-image: url("/floor3.png");
+  &.floor3 {
+    background-image: url('/floor3.png');
   }
 
   &.player {
-    background-image: url("/persona1.png");
+    background-image: url('/persona1.png');
     animation: persona_front 0.4s infinite;
 
-    &:after{
+    &:after {
       position: absolute;
-      top:-30px;
-      width:10vw;
-      content: "I need protect that car for robots...";
+      top: -30px;
+      width: 10vw;
+      content: 'I need protect that car for robots...';
       background-color: #fff;
       border-radius: 20px;
       padding: 10px;
@@ -43,23 +43,29 @@ $size: 100vw;
       opacity: 0;
       animation: ballon 6s;
       animation-delay: 2s;
-      
     }
   }
 
   &.enemy {
-    background-image: url("/robot.png");
+    background-image: url('/robot.png');
     animation: anima_robot 1s infinite;
   }
 
+  &.refri {
+    background-image: url('/refri.png');
+  }
+
+  &.fliper {
+    background-image: url('/fliper.png');
+  }
+
   &.wall {
-    background-image: url("/wall.png");
+    background-image: url('/wall.png');
   }
 
   &:hover {
     // background-image: url("/select_inative.png");
-    background-color:rgba(0,0,0,0.06);
-    
+    background-color: rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -73,54 +79,46 @@ $size: 100vw;
 
 @keyframes persona_front {
   0% {
-    background-image: url("/persona1.png");
+    background-image: url('/persona1.png');
   }
   25% {
-    background-image: url("/persona2.png");
+    background-image: url('/persona2.png');
   }
   50% {
-    background-image: url("/persona3.png");
+    background-image: url('/persona3.png');
   }
   75% {
-    background-image: url("/persona2.png");
+    background-image: url('/persona2.png');
   }
 }
 
-
 @keyframes into_hover {
- from {
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
   }
 }
 
-
 @keyframes ballon {
   0% {
-     opacity: 0;
-   }
-   10% {
+    opacity: 0;
+  }
+  10% {
     opacity: 1;
   }
   90% {
     opacity: 1;
   }
-   100%{
-     opacity: 0;
-   }
- }
- 
-
-
-
-
-
+  100% {
+    opacity: 0;
+  }
+}
 
 @keyframes anima_robot {
   0% {
-   margin-top: 0;
+    margin-top: 0;
   }
   50% {
     margin-top: -10px;
@@ -129,6 +127,3 @@ $size: 100vw;
     margin-top: 0;
   }
 }
-
-
-
